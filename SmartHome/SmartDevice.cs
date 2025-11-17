@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartHome
 {
-    internal class SmartDevice
+    public class SmartDevice
     {
         //private fields
         private int deviceId;
@@ -41,17 +41,20 @@ namespace SmartHome
         //turn on method
         public void turnOn()
         {
+            Console.WriteLine($"{deviceName} (ID: {DeviceID}) is now turned on");
             status = true;
         }
         //turn off method
         public void turnOff()
         {
+            Console.WriteLine($"{deviceName} (ID: {DeviceID}) is now turned off");
             status = false;
         }
         //get status method
-        public bool getStatus()
+        public virtual void getStatus()
         {
-            return status;
+            Console.WriteLine($"{deviceName} (ID: {DeviceID}) is {(status ? "on" : "off")}");
+            //return status;
         }
     }
 }
